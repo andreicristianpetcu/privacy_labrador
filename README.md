@@ -27,3 +27,5 @@ The build tool also defines a variable named `process.env.NODE_ENV` in your scri
 ## Docs
 
 * [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
+
+The license is under CC-BY [Labrador by Shirley Hernández Ticona, DO](https://thenounproject.com/search/?q=labrador&i=516389)
