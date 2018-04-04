@@ -13,6 +13,9 @@
     "96": "images/icon-96.png",
     "128": "images/icon-128.png"
   },
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
   "content_scripts": [{
     "matches": [
       "https://duckduckgo.com/*"
@@ -25,8 +28,7 @@
   }],
   "permissions": [
     "activeTab"
-  ]
-  ,
+  ],
   "chrome_settings_overrides": {
     "search_provider": {
       "name": "Google by Privacy Labrador",
@@ -34,6 +36,14 @@
       "keyword": "g",
       "favicon_url": "https://raw.githubusercontent.com/andreicristianpetcu/privacy_labrador/master/app/images/icon-16.png",
       "is_default": false
+    }
+  },
+  "commands": {
+    "to-google": {
+      "suggested_key": {
+        "default": "Alt+Shift+G"
+      },
+      "description": "Redirects current search results page to Google"
     }
   }
 }
