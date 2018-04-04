@@ -2,7 +2,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "manifest_version": 2,
   "default_locale": "en",
   "icons": {
@@ -13,19 +13,27 @@
     "96": "images/icon-96.png",
     "128": "images/icon-128.png"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://duckduckgo.com/*"
-      ],
-      "js": [
-        "scripts/contentscript.js"
-      ],
-      "run_at": "document_idle",
-      "all_frames": false
-    }
-  ],
+  "content_scripts": [{
+    "matches": [
+      "https://duckduckgo.com/*"
+    ],
+    "js": [
+      "scripts/contentscript.js"
+    ],
+    "run_at": "document_idle",
+    "all_frames": false
+  }],
   "permissions": [
     "activeTab"
   ]
+  ,
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "Google by Privacy Labrador",
+      "search_url": "https://www.google.com/search?&q={searchTerms}",
+      "keyword": "g",
+      "favicon_url": "https://raw.githubusercontent.com/andreicristianpetcu/privacy_labrador/master/app/images/icon-16.png",
+      "is_default": false
+    }
+  }
 }
