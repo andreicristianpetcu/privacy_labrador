@@ -20,3 +20,8 @@ chrome.commands.onCommand.addListener(function (action) {
         });
     }
 });
+
+function testBackground(world){
+    return "background hello " + world;
+}
+

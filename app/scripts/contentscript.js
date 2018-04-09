@@ -13,3 +13,7 @@ if (queryParam) {
     var resultItems = document.getElementById('duckbar_static');
     resultItems.insertBefore(googleLinkItem, resultItems.childNodes[0]);
 }
+
+function testContent(world){
+    return "conent hello " + world;
+}
