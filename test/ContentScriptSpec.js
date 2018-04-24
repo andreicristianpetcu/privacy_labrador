@@ -4,7 +4,7 @@
     describe('Tests injects Google link', function () {
 
         it('should work for DuckDuckGo', function () {
-            document.body.innerHTML = window.__html__['duck_duck_go_result.html'];
+            document.body.innerHTML = window.__html__['test/data/duck_duck_go_result.html'];
 
             injectGoogleLink('?q=karma+load+file&t=ffab&ia=qa');
 
