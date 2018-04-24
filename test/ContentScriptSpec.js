@@ -1,10 +1,16 @@
 (function () {
     'use strict'
 
-    describe('Tests content', function () {
+    describe('Tests injects Google link', function () {
 
-        it('should hello world', function () {
-            expect(testContent('world')).toBe('conent hello world');
+        it('should work for DuckDuckGo', function () {
+            document.body.innerHTML = window.__html__['duck_duck_go_result.html'];
+
+            injectGoogleLink('?q=karma+load+file&t=ffab&ia=qa');
+
+            var googleAnchorInDuckDuckGoPage = document.querySelectorAll("ul#duckbar_static li a")[0];
+            expect(googleAnchorInDuckDuckGoPage.text).toBe('Google');
+            expect(googleAnchorInDuckDuckGoPage.href).toBe('https://www.google.com/search?q=karma%20load%20file');
         });
 
     });
