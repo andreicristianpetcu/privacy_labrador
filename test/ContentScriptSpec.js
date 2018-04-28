@@ -24,5 +24,17 @@
             expect(googleAnchorInDuckDuckGoPage.href).toBe('https://www.google.com/search?q=gnu%20project');
         });
 
+        it('should work for Qwant desktop when input changes', function () {
+            document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
+
+            injectGoogleLink('www.qwant.com', '?q=gnu+project&t=web');
+            document.querySelector('input[type=search]').value='free software foundation';
+            document.querySelector('input[type=search]').onkeyup();
+
+            var googleAnchorInDuckDuckGoPage = document.querySelectorAll("li.sidebar__item--google a")[0];
+            expect(googleAnchorInDuckDuckGoPage.text).toBe('Google');
+            expect(googleAnchorInDuckDuckGoPage.href).toBe('https://www.google.com/search?q=free%20software%20foundation');
+        });
+
     });
 })();
