@@ -1,6 +1,10 @@
 (function () {
     'use strict';
 
+    function isHostPrefixedWith(fullUrl, urlPrefix) {
+        return fullUrl.indexOf(urlPrefix) > -1;
+    }
+
     function setWindowLocation(url) {
         const urlFragments = url.split('?');
         window.privacyLabradorLocation = {
@@ -9,6 +13,12 @@
                 search: urlFragments[1]
             }
         };
+        if (isHostPrefixedWith(url, 'https://duckduckgo.com')) {
+            document.body.innerHTML = window.__html__['test/data/duck_duck_go_result.html'];
+        }
+        if (isHostPrefixedWith(url, 'https://www.qwant.com')) {
+            document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
+        }
     }
 
     function typeTextInSearchField(textToType) {
@@ -26,7 +36,6 @@
     describe('Tests injects Google link', function () {
 
         it('should work for DuckDuckGo', function () {
-            document.body.innerHTML = window.__html__['test/data/duck_duck_go_result.html'];
             setWindowLocation('https://duckduckgo.com?q=gnu+project&t=ffab&ia=qa');
 
             injectGoogleLink();
@@ -36,7 +45,6 @@
 
 
         it('should work for Qwant desktop', function () {
-            document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
             setWindowLocation('https://www.qwant.com?q=gnu+project&t=web');
 
             injectGoogleLink();
@@ -45,7 +53,6 @@
         });
 
         it('should work for Qwant desktop when input changes', function () {
-            document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
             setWindowLocation('https://www.qwant.com?q=gnu+project&t=web');
 
             injectGoogleLink();
@@ -54,15 +61,15 @@
             expectLinkWithTextAndSelector("free software foundation", "li.sidebar__item--google a");
         });
 
-        // it('should work for Qwant desktop when google link gets removed', function () {
-        //     document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
-        //     injectGoogleLink('www.qwant.com', '?q=gnu+project&t=web');
-        //     typeTextInSearchField('free software foundation');
+        xit('should work for Qwant desktop when google link gets removed', function () {
+            setWindowLocation('https://www.qwant.com?q=gnu+project&t=web');
+            injectGoogleLink();
+            typeTextInSearchField('free software foundation');
 
-        //     document.getElementById("labrador_retriever_fallback").remove();
-        //     typeTextInSearchField('eff');
+            document.getElementById("labrador_retriever_fallback").remove();
+            typeTextInSearchField('eff');
 
-        //     expectLinkWithTextAndSelector("eff");
-        // });
+            expectLinkWithTextAndSelector("eff");
+        });
     });
 })();
