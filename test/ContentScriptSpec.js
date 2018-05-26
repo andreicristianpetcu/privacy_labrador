@@ -61,7 +61,7 @@
             expectLinkWithTextAndSelector("free software foundation", "li.sidebar__item--google a");
         });
 
-        xit('should work for Qwant desktop when google link gets removed', function () {
+        it('should work for Qwant desktop when google link gets removed', function () {
             setWindowLocation('https://www.qwant.com?q=gnu+project&t=web');
             injectGoogleLink();
             typeTextInSearchField('free software foundation');

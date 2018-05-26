@@ -30,6 +30,7 @@ function addInputFieldListener(inputToCheck) {
         var oldOnKeyUp = inputToCheck.onkeyup;
         inputToCheck.onkeyup = function (e) {
             var oldResult = oldOnKeyUp?oldOnKeyUp(e):'';
+            injectGoogleLink();
             linkToUpdate.href = buildGoogleQueryUrl(inputToCheck.value);
             console.log('new value is ' + linkToUpdate.href);
             return oldResult;
@@ -62,8 +63,9 @@ function decorateQwantLink(googleLink) {
 function injectGoogleLink() {
     var hostName = getWindowLocation().hostname;
     var queryParam = new URLSearchParams(getWindowLocation().search).get('q');
+    var existingLink = document.getElementById('labrador_retriever_fallback');
 
-    if (queryParam) {
+    if (queryParam && !existingLink) {
         var googleLink = createGoogleLink(queryParam);
 
         if (hostName.indexOf('duckduckgo.com') > -1) {
