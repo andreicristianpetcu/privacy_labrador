@@ -1,10 +1,12 @@
 {
-  "name": "Privacy-Labrador",
+  "name": "privacy-labrador",
   "version": "0.0.1",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "scripts": {
-    "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
+    "dev": "webextension-toolbox dev firefox",
+    "build": "webextension-toolbox build",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js --browsers FirefoxHeadless",
+    "testDebug": "./node_modules/karma/bin/karma start karma.conf.js"
   },
   "devDependencies": {
     "jasmine-core": "^3.1.0",

@@ -1,3 +1,15 @@
+function isInsideRealBrowser(){
+    return document.location.toString().indexOf('http://localhost:') === -1;
+}
+
+function getWindowLocation(){
+    if(isInsideRealBrowser()){
+        return window.location;
+    } else {
+        return window.privacyLabradorLocation.location;
+    }
+}
+
 function createGoogleLink(searchTerms) {
     var googleLink = document.createElement('a');
     googleLink.textContent = "Google";
@@ -21,7 +33,7 @@ function addInputFieldListener(inputToCheck) {
             linkToUpdate.href = buildGoogleQueryUrl(inputToCheck.value);
             console.log('new value is ' + linkToUpdate.href);
             return oldResult;
-        }
+        };
     }
 }
 
@@ -47,8 +59,9 @@ function decorateQwantLink(googleLink) {
     addInputFieldListener(document.querySelector('input[type=search]'));
 }
 
-function injectGoogleLink(hostName, locationSearch) {
-    var queryParam = new URLSearchParams(locationSearch).get('q');
+function injectGoogleLink() {
+    var hostName = getWindowLocation().hostname;
+    var queryParam = new URLSearchParams(getWindowLocation().search).get('q');
 
     if (queryParam) {
         var googleLink = createGoogleLink(queryParam);
@@ -90,9 +103,10 @@ function injectGoogleLink(hostName, locationSearch) {
 //   }  
 // }
 
-var isNotTestMode = document.location.toString().indexOf('http://localhost:') === -1;
-if (isNotTestMode) {
+if (isInsideRealBrowser()) {
     setTimeout(function () {
-        injectGoogleLink(window.location.hostname, window.location.search);
+        injectGoogleLink();
     }, 500);
 }
+
+console.log("Barking for privacy!");
