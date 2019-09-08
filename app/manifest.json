@@ -28,7 +28,11 @@
     "all_frames": false
   }],
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "https://duckduckgo.com/*",
+    "https://www.qwant.com/*",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "chrome_settings_overrides": {
     "search_provider": {
@@ -45,6 +49,12 @@
         "default": "Alt+Shift+G"
       },
       "description": "Redirects current search results page to Google"
+    },
+    "toggle-always-to-google": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Toogles always redirect DDG pages to Google"
     }
   }
 }
