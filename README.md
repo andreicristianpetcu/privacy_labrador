@@ -7,6 +7,7 @@ FEATURES:
 - it jump to the Google results with Shift+Alt+G if you are on Duck Duck Go results page;
 - If you type "g some search term" in the awesome bar it will go directly to Google's "some search term" results page.
 - it can temporarily reset your current search engine and always redirect to google when you tap Shift+Alt+A. This is useful when you pair program with people that don't like DDG or QWant.
+- Configure the two extension shortcuts from about:addons > settings icon > Manage extension shortcuts
 
 I'm currently working on rudimentary qwant.com support. It's still buggy in Qwant.
 
