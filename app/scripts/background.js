@@ -1,9 +1,11 @@
 function toGoogle(queryUrl){
-    var params = queryUrl.search.split("&");
-    for (var i = 0; i < params.length; i++) {
-        if (params[i].startsWith('?q=') || params[i].startsWith('q=')) {
-            var newUrl = "https://www.google.com/search?q=" + params[i].split('=')[1];
-            return newUrl;
+    if(queryUrl.host.indexOf("google") === -1){
+        var params = queryUrl.search.split("&");
+        for (var i = 0; i < params.length; i++) {
+            if (params[i].startsWith('?q=') || params[i].startsWith('q=')) {
+                var newUrl = "https://www.google.com/search?q=" + params[i].split('=')[1];
+                return newUrl;
+            }
         }
     }
     return "";
