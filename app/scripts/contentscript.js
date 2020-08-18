@@ -76,39 +76,8 @@ function injectGoogleLink() {
     }
 }
 
-// var inputField = document.querySelector('input[type=search]');
-// function myOnKeyUp(value){
-//   console.log('listener');
-//   console.log(inputField.value);
-// };
-
-// var oldOnKeyUp = inputField.onkeyup;
-
-// inputField.onkeyup = function(e){
-//   var oldResult = oldOnKeyUp(e);
-//   myOnKeyUp(e);
-//   return oldResult;
-// }
-
-// var inputField = document.querySelector('input[type=search]');
-
-// var oldOnKeyUp = inputField.onkeyup;
-// if(!oldOnKeyUp.name) {
-//   console.log('adding listener');
-//   inputField.onkeyup = function(e){
-//     inputField.onkeyup.name = 'newOnKeyUp';
-//     var oldResult = oldOnKeyUp(e);
-//     myOnKeyUp(e);
-//     console.log('listener');
-//     console.log(inputField.value);
-//     return oldResult;
-//   }  
-// }
-
 if (isInsideRealBrowser()) {
     setTimeout(function () {
         injectGoogleLink();
     }, 500);
 }
-
-console.log("Barking for privacy!");

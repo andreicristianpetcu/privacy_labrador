@@ -4,7 +4,7 @@
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "scripts": {
     "dev": "webextension-toolbox dev firefox",
-    "build": "webextension-toolbox build",
+    "build": "webextension-toolbox build firefox --no-minimize ",
     "test": "./node_modules/karma/bin/karma start karma.conf.js --browsers FirefoxHeadless",
     "testDebug": "./node_modules/karma/bin/karma start karma.conf.js"
   },
