@@ -8,7 +8,7 @@
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {
-    "message": "This extension adds a link to Google search results on the DuckDuckGo page. More info and features soon. Please do not review it yet.",
+    "message": "You can now use Mojeek, Qwant or DuckDuckGo as your default search engine and when it misses the results, a handy Google link is presented in the page. Check the FEATURES section bellow.",
     "description": "The description of the application"
   }
 }

@@ -49,6 +49,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         urls: [
             "https://duckduckgo.com/*",
             "https://www.qwant.com/*",
+            "https://www.mojeek.com/*",
         ],
         types: ["main_frame"]
     }, ["blocking"]

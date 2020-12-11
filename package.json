@@ -1,7 +1,7 @@
 {
   "name": "privacy-labrador",
-  "version": "0.0.1",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "version": "1.0.1",
+  "description": "You can now use Mojeek, Qwant or DuckDuckGo as your default search engine and when it misses the results, a handy Google link is presented in the page. Check the FEATURES section bellow.",
   "scripts": {
     "dev": "webextension-toolbox dev firefox",
     "build": "webextension-toolbox build firefox --no-minimize ",

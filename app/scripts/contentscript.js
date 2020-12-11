@@ -60,6 +60,18 @@ function decorateQwantLink(googleLink) {
     addInputFieldListener(document.querySelector('input[type=search]'));
 }
 
+function decorateMojeekLink(googleLink) {
+    googleLink.className = 'sidebar__item__link';
+
+    var googleLinkItem = document.createElement('li');
+    googleLinkItem.className = 'sidebar__item sidebar__item--google';
+    googleLinkItem.appendChild(googleLink);
+    var resultItems = document.querySelectorAll('.opts-bar .left ul')[0];
+    resultItems.insertBefore(googleLinkItem, resultItems.childNodes[0]);
+
+    addInputFieldListener(document.querySelector('input[type="text"]'));
+}
+
 function injectGoogleLink() {
     var hostName = getWindowLocation().hostname;
     var queryParam = new URLSearchParams(getWindowLocation().search).get('q');
@@ -72,6 +84,8 @@ function injectGoogleLink() {
             decorageDuckDuckGoLink(googleLink);
         } else if (hostName.indexOf('qwant.com') > -1) {
             decorateQwantLink(googleLink);
+        } else if (hostName.indexOf('mojeek.com') > -1) {
+            decorateMojeekLink(googleLink);
         }
     }
 }

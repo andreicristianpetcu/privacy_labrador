@@ -2,7 +2,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.4.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "default_locale": "en",
   "icons": {
@@ -19,7 +19,8 @@
   "content_scripts": [{
     "matches": [
       "https://duckduckgo.com/*",
-      "https://www.qwant.com/*"
+      "https://www.qwant.com/*",
+      "https://www.mojeek.com/*"
     ],
     "js": [
       "scripts/contentscript.js"
@@ -31,6 +32,7 @@
     "activeTab",
     "https://duckduckgo.com/*",
     "https://www.qwant.com/*",
+    "https://www.mojeek.com/*",
     "webRequest",
     "webRequestBlocking"
   ],

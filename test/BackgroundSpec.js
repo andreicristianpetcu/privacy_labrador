@@ -11,6 +11,10 @@
             expect(toGoogle(new URL('https://www.qwant.com/?q=test'))).toBe('https://www.google.com/search?q=test');
         });
 
+        it('should redirect mojeek to google', function () {
+            expect(toGoogle(new URL('https://www.mojeek.com/search?q=firefox%20fenix'))).toBe('https://www.google.com/search?q=firefox%20fenix');
+        });
+
         it('should not redirect google to google', function () {
             expect(toGoogle(new URL('https://www.google.com/search?q=test'))).toBe('');
         });

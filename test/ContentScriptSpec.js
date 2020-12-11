@@ -19,6 +19,9 @@
         if (isHostPrefixedWith(url, 'https://www.qwant.com')) {
             document.body.innerHTML = window.__html__['test/data/qwant_desktop.html'];
         }
+        if (isHostPrefixedWith(url, 'https://www.mojeek.com')) {
+            document.body.innerHTML = window.__html__['test/data/mojeek.html'];
+        }
     }
 
     function typeTextInSearchField(textToType) {
@@ -70,6 +73,14 @@
             typeTextInSearchField('eff');
 
             expectLinkWithTextAndSelector("eff");
+        });
+
+        it('should work for Mojeek', function () {
+            setWindowLocation('https://www.mojeek.com/search?q=firefox%20fenix');
+
+            injectGoogleLink();
+
+            expectLinkWithTextAndSelector("firefox fenix", "li.sidebar__item--google a");
         });
     });
 })();
